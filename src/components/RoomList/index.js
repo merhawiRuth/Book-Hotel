@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Tour from '../Tour';
+import Room from '../Room';
 import './tourlist.scss';
 import { tourData } from '../../tourData';
 
@@ -21,7 +21,7 @@ export default class TourList extends Component {
     return (
       <section className="tourlist">
         {tours.map(tour => (
-          <Tour key={tour.id} tour={tour} removeTour={this.removeTour} />
+          <Room key={tour.id} tour={tour} removeTour={this.removeTour} />
         ))}
       </section>
     );
