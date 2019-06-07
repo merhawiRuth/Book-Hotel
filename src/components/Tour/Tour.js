@@ -10,6 +10,7 @@ export default class Tour extends Component {
     const { removeTour } = this.props;
     return (
       <article className="tour">
+        hello
         <div className="img-container">
           <img src={img} alt="image of the tour" />
           <span onClick={() => removeTour(id)} className="close-btn">
