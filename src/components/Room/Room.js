@@ -4,17 +4,14 @@ export default class Tour extends Component {
     this.setState({ para: !this.state.para });
   };
   render() {
-    const { id, city, img, name, info } = this.props.tour;
-    const { removeTour } = this.props;
+    const { id, info } = this.props.room;
     return (
       <div className="ui cards tour">
         <div className="card">
           <div className="content">
-            <div className="header">Room 1</div>
+            <div className="header">Room {id}</div>
             <div className="meta">New Member</div>
-            <div className="description">
-              Jenny wants to add you to the group <b>best friends</b>
-            </div>
+            <div className="description">{info}</div>
           </div>
           <div className="extra content">
             Adults(18+)

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Room from '../Room';
 import './tourlist.scss';
-import { tourData } from '../../tourData';
+import { roomData } from '../../roomData';
 
 export default class TourList extends Component {
   state = {
-    tours: tourData
+    rooms: roomData
   };
   removeTour = id => {
     this.setState({
@@ -16,13 +16,20 @@ export default class TourList extends Component {
   };
   render() {
     // console.log(this.state.tours);
-    const { tours } = this.state;
+    const { rooms } = this.state;
 
     return (
       <section className="tourlist">
-        {tours.map(tour => (
-          <Room key={tour.id} tour={tour} removeTour={this.removeTour} />
-        ))}
+        <div className="ui four column doubling stackable grid container">
+          {rooms.map(room => (
+            <Room
+              className="column"
+              key={room.id}
+              room={room}
+              removeTour={this.removeTour}
+            />
+          ))}
+        </div>
       </section>
     );
   }
