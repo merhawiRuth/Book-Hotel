@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './room.scss';
 export default class Tour extends Component {
-  state = {
-    clicked: false,
-    active: false
-  };
+  // state = {
+  //   clicked: false,
+  //   active: false
+  // };
   handleClick = () => {
     this.setState({
       clicked: !this.state.clicked,
@@ -12,7 +12,7 @@ export default class Tour extends Component {
     });
   };
   render() {
-    const { id, info } = this.props.room;
+    const { id, info, active } = this.props.details;
     return (
       <div className="ui cards tour">
         <div className="card">
@@ -20,17 +20,17 @@ export default class Tour extends Component {
             <span className="header">
               Room {id}
               <span style={{ float: 'right' }} onClick={this.handleClick}>
-                {this.state.clicked === true ? (
-                  <i class="check circle icon" />
+                {active === true ? (
+                  <i className="check circle icon" />
                 ) : (
-                  <i class="check circle outline icon" />
+                  <i className="check circle outline icon" />
                 )}{' '}
               </span>
             </span>
             <div className="description">{info}</div>
           </div>
           <div className="extra content">
-            {this.state.active === true ? (
+            {active === true ? (
               <div>
                 <span>Adults(18+)</span>
                 <select>
