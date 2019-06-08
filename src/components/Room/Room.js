@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import './room.scss';
 export default class Tour extends Component {
-  handleInfo = () => {
-    this.setState({ para: !this.state.para });
+  state = {
+    clicked: false
+  };
+  handleClick = () => {
+    this.setState({
+      clicked: !this.state.clicked
+    });
   };
   render() {
     const { id, info } = this.props.room;
@@ -9,8 +15,12 @@ export default class Tour extends Component {
       <div className="ui cards tour">
         <div className="card">
           <div className="content">
-            <div className="header">Room {id}</div>
-            <div className="meta">New Member</div>
+            <span className="header">
+              Room {id}
+              <span style={{ float: 'right' }}>
+                {this.state.clicked === true && <i className="check icon" />}{' '}
+              </span>
+            </span>
             <div className="description">{info}</div>
           </div>
           <div className="extra content">

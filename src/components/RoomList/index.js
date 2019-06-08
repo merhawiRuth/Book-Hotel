@@ -7,13 +7,6 @@ export default class TourList extends Component {
   state = {
     rooms: roomData
   };
-  removeTour = id => {
-    this.setState({
-      tours: this.state.tours.filter(e => {
-        return e.id !== id;
-      })
-    });
-  };
   render() {
     // console.log(this.state.tours);
     const { rooms } = this.state;
@@ -22,7 +15,7 @@ export default class TourList extends Component {
       <section className="tourlist">
         <div class="ui four cards">
           {rooms.map(room => (
-            <a class="red card">
+            <a class="blue card" onClick={this.handleClick}>
               <Room
                 className="column"
                 key={room.id}
