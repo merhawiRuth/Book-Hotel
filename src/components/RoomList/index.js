@@ -20,14 +20,16 @@ export default class TourList extends Component {
 
     return (
       <section className="tourlist">
-        <div className="ui four column doubling stackable grid container">
+        <div class="ui four cards">
           {rooms.map(room => (
-            <Room
-              className="column"
-              key={room.id}
-              room={room}
-              removeTour={this.removeTour}
-            />
+            <a class="red card">
+              <Room
+                className="column"
+                key={room.id}
+                room={room}
+                removeTour={this.removeTour}
+              />
+            </a>
           ))}
         </div>
       </section>
