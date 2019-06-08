@@ -12,7 +12,7 @@ export default class Tour extends Component {
   render() {
     const { id, info } = this.props.room;
     return (
-      <div className="ui cards tour">
+      <div className="ui cards tour" onClick={this.handleClick}>
         <div className="card">
           <div className="content">
             <span className="header">
