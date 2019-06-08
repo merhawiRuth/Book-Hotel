@@ -2,40 +2,65 @@ import React, { Component } from 'react';
 import './room.scss';
 export default class Tour extends Component {
   state = {
-    clicked: false
+    clicked: false,
+    active: false
   };
   handleClick = () => {
     this.setState({
-      clicked: !this.state.clicked
+      clicked: !this.state.clicked,
+      active: !this.state.active
     });
   };
   render() {
     const { id, info } = this.props.room;
     return (
-      <div className="ui cards tour" onClick={this.handleClick}>
+      <div className="ui cards tour">
         <div className="card">
           <div className="content">
             <span className="header">
               Room {id}
-              <span style={{ float: 'right' }}>
-                {this.state.clicked === true && <i className="check icon" />}{' '}
+              <span style={{ float: 'right' }} onClick={this.handleClick}>
+                {this.state.clicked === true ? (
+                  <i class="check circle icon" />
+                ) : (
+                  <i class="check circle outline icon" />
+                )}{' '}
               </span>
             </span>
             <div className="description">{info}</div>
           </div>
           <div className="extra content">
-            Adults(18+)
-            <select>
-              <option value="1">1</option>
-              <option value="2">2</option>
-            </select>
-            Children(0-17)
-            <select>
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select>
+            {this.state.active === true ? (
+              <div>
+                <span>Adults(18+)</span>
+                <select>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                </select>
+                <span>Children(0-17)</span>
+                <select>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+            ) : (
+              <div>
+                <span>Adults(18+)</span>
+                <select disabled>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                </select>
+                <span>Children(0-17)</span>
+                <select disabled>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+            )}
           </div>
         </div>
       </div>
