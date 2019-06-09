@@ -10,7 +10,6 @@ export default class RoomList extends Component {
         <ProductConsumer>
           {value => {
             const { room1, room2, room3, room4, handleRoom } = value;
-
             return (
               <div>
                 <section className="tourlist">

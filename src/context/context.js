@@ -11,11 +11,27 @@ class ProductProvider extends Component {
     room4: false
   };
   handleRoom = room => {
-    console.log(room);
-    const newRoom = room;
-    this.setState({
-      [room]: !this.state[newRoom]
-    });
+    if (room === 'room2') {
+      this.setState({
+        room2: !this.state.room2,
+        room3: false,
+        room4: false
+      });
+    }
+    if (room === 'room3') {
+      this.setState({
+        room2: true,
+        room3: !this.state.room3,
+        room4: false
+      });
+    }
+    if (room === 'room4') {
+      this.setState({
+        room2: true,
+        room3: true,
+        room4: !this.state.room4
+      });
+    }
   };
   render() {
     return (
