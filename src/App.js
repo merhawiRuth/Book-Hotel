@@ -7,9 +7,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Navbar />
-        <div className="ui four column grid">
-          <TourList />
-        </div>
+        <TourList />
       </React.Fragment>
     );
   }

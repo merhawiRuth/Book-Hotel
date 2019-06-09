@@ -1,36 +1,26 @@
 import React, { Component } from 'react';
 import './room.scss';
 export default class Tour extends Component {
-  // state = {
-  //   clicked: false,
-  //   active: false
-  // };
-  handleClick = () => {
-    this.setState({
-      clicked: !this.state.clicked,
-      active: !this.state.active
-    });
-  };
   render() {
-    const { id, info, active } = this.props.details;
+    const { roomNum, room } = this.props;
     return (
       <div className="ui cards tour">
         <div className="card">
           <div className="content">
             <span className="header">
-              Room {id}
-              <span style={{ float: 'right' }} onClick={this.handleClick}>
-                {active === true ? (
+              Room {roomNum}
+              <span style={{ float: 'right' }}>
+                {room ? (
                   <i className="check circle icon" />
                 ) : (
                   <i className="check circle outline icon" />
-                )}{' '}
+                )}
               </span>
             </span>
-            <div className="description">{info}</div>
+            <div className="description" />
           </div>
           <div className="extra content">
-            {active === true ? (
+            {room ? (
               <div>
                 <span>Adults(18+)</span>
                 <select>

@@ -6,7 +6,7 @@ export const roomData = [
   },
   {
     id: 2,
-    info: 'Two bed',
+    info: 'Two beds',
     active: false
   },
   {
@@ -16,7 +16,7 @@ export const roomData = [
   },
   {
     id: 4,
-    info: 'Has flat screen',
+    info: 'Has flat screen TV.',
     active: false
   }
 ];
