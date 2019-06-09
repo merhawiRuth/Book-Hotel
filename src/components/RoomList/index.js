@@ -15,7 +15,7 @@ export default class RoomList extends Component {
               <div>
                 <section className="tourlist">
                   <div className="ui four cards">
-                    <a className="red card" onClick={() => handleRoom('room1')}>
+                    <a className="red card">
                       <Room className="column" room={room1} roomNum={1} />
                     </a>
                     <a className="red card" onClick={() => handleRoom('room2')}>

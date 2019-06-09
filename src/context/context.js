@@ -8,13 +8,13 @@ class ProductProvider extends Component {
     room1: true,
     room2: false,
     room3: false,
-    room4: false,
-    s: roomData
+    room4: false
   };
   handleRoom = room => {
     console.log(room);
+    const newRoom = room;
     this.setState({
-      [room]: !this.state.room
+      [room]: !this.state[newRoom]
     });
   };
   render() {
