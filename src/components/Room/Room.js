@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import './room.scss';
 export default class Tour extends Component {
   render() {
-    const { roomNum, room } = this.props;
+    const { roomNum, room, handleRoom } = this.props;
     return (
       <div className="ui cards tour">
         <div className="card">
           <div className="content">
             <span className="header">
               Room {roomNum}
-              <span style={{ float: 'right' }}>
+              <span
+                style={{ float: 'right' }}
+                onClick={() => handleRoom(roomNum)}
+              >
                 {room ? (
                   <i className="check circle icon" />
                 ) : (

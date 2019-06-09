@@ -11,6 +11,18 @@ class ProductProvider extends Component {
     room4: false
   };
   handleRoom = room => {
+    switch (room) {
+      case 2:
+        room = 'room2';
+        break;
+      case 3:
+        room = 'room3';
+        break;
+      case 4:
+        room = 'room4';
+        break;
+    }
+
     if (room === 'room2') {
       this.setState({
         room2: !this.state.room2,

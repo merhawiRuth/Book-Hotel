@@ -10,37 +10,75 @@ export default class RoomList extends Component {
         <ProductConsumer>
           {value => {
             const { room1, room2, room3, room4, handleRoom } = value;
+
             return (
               <div>
                 <section className="tourlist">
                   <div className="ui four cards">
                     <a className="red card">
-                      <Room className="column" room={room1} roomNum={1} />
+                      <Room
+                        className="column"
+                        room={room1}
+                        roomNum={1}
+                        handleRoom={handleRoom}
+                      />
                     </a>
-                    <a className="red card" onClick={() => handleRoom('room2')}>
+                    <a className="red card">
                       <Room
                         className="column"
                         room={room2}
                         roomNum={2}
-                        makeActive={this.handleClick}
+                        handleRoom={handleRoom}
                       />
                     </a>
-                    <a className="red card" onClick={() => handleRoom('room3')}>
+                    <a className="red card">
                       <Room
                         className="column"
                         room={room3}
                         roomNum={3}
-                        makeActive={this.handleClick}
+                        handleRoom={handleRoom}
                       />
                     </a>
-                    <a className="red card" onClick={() => handleRoom('room4')}>
+                    <a className="red card">
                       <Room
                         className="column"
                         room={room4}
                         roomNum={4}
+                        handleRoom={handleRoom}
+                      />
+                    </a>
+                    {/* <a
+                      className="red card"
+                      onClick={() => handleRoom(rooms[1].id)}
+                    >
+                      <Room
+                        className="column"
+                        roomNum={2}
                         makeActive={this.handleClick}
                       />
                     </a>
+                    <a
+                      className="red card"
+                      onClick={() => handleRoom(rooms[2].id)}
+                    >
+                      <Room
+                        className="column"
+                        room={rooms[2].active}
+                        roomNum={3}
+                        makeActive={this.handleClick}
+                      />
+                    </a>
+                    <a
+                      className="red card"
+                      onClick={() => handleRoom(rooms[3].id)}
+                    >
+                      <Room
+                        className="column"
+                        room={rooms[3].active}
+                        roomNum={4}
+                        makeActive={this.handleClick}
+                      />
+                    </a> */}
                   </div>
                   <button
                     style={{ margin: '2rem 2rem 1rem 1rem' }}
