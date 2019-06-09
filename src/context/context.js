@@ -10,6 +10,31 @@ class ProductProvider extends Component {
     room3: false,
     room4: false
   };
+  hydrateStateWithLocalStorage() {
+    // for all items in state
+    for (let key in this.state) {
+      // if the key exists in localStorage
+      if (localStorage.hasOwnProperty(key)) {
+        // get the key's value from localStorage
+        let value = localStorage.getItem(key);
+
+        // parse the localStorage string and setState
+        try {
+          value = JSON.parse(value);
+          this.setState({ [key]: value });
+        } catch (e) {
+          // handle empty string
+          this.setState({ [key]: value });
+        }
+      }
+    }
+  }
+
+  componentDidMount() {
+    this.hydrateStateWithLocalStorage();
+  }
+  componentWillUpdate(extProps, nextState) {}
+
   handleRoom = room => {
     switch (room) {
       case 2:
@@ -45,10 +70,23 @@ class ProductProvider extends Component {
       });
     }
   };
+  handleSubmit = () => {
+    const { room1, room2, room3, room4 } = this.state;
+    localStorage.setItem('room1', room1);
+    localStorage.setItem('room2', room2);
+
+    localStorage.setItem('room3', room3);
+
+    localStorage.setItem('room4', room4);
+  };
   render() {
     return (
       <ProductContext.Provider
-        value={{ ...this.state, handleRoom: this.handleRoom }}
+        value={{
+          ...this.state,
+          handleRoom: this.handleRoom,
+          handleSubmit: this.handleSubmit
+        }}
       >
         {this.props.children}
       </ProductContext.Provider>

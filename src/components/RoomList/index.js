@@ -9,13 +9,20 @@ export default class RoomList extends Component {
       <>
         <ProductConsumer>
           {value => {
-            const { room1, room2, room3, room4, handleRoom } = value;
+            const {
+              room1,
+              room2,
+              room3,
+              room4,
+              handleRoom,
+              handleSubmit
+            } = value;
 
             return (
               <div>
                 <section className="tourlist">
                   <div className="ui four cards">
-                    <a className="red card">
+                    <a className="green card">
                       <Room
                         className="column"
                         room={room1}
@@ -23,7 +30,7 @@ export default class RoomList extends Component {
                         handleRoom={handleRoom}
                       />
                     </a>
-                    <a className="red card">
+                    <a className={room2 === true ? 'green card' : 'red card'}>
                       <Room
                         className="column"
                         room={room2}
@@ -31,7 +38,7 @@ export default class RoomList extends Component {
                         handleRoom={handleRoom}
                       />
                     </a>
-                    <a className="red card">
+                    <a className={room3 === true ? 'green card' : 'red card'}>
                       <Room
                         className="column"
                         room={room3}
@@ -39,7 +46,7 @@ export default class RoomList extends Component {
                         handleRoom={handleRoom}
                       />
                     </a>
-                    <a className="red card">
+                    <a className={room4 === true ? 'green card' : 'red card'}>
                       <Room
                         className="column"
                         room={room4}
@@ -47,42 +54,11 @@ export default class RoomList extends Component {
                         handleRoom={handleRoom}
                       />
                     </a>
-                    {/* <a
-                      className="red card"
-                      onClick={() => handleRoom(rooms[1].id)}
-                    >
-                      <Room
-                        className="column"
-                        roomNum={2}
-                        makeActive={this.handleClick}
-                      />
-                    </a>
-                    <a
-                      className="red card"
-                      onClick={() => handleRoom(rooms[2].id)}
-                    >
-                      <Room
-                        className="column"
-                        room={rooms[2].active}
-                        roomNum={3}
-                        makeActive={this.handleClick}
-                      />
-                    </a>
-                    <a
-                      className="red card"
-                      onClick={() => handleRoom(rooms[3].id)}
-                    >
-                      <Room
-                        className="column"
-                        room={rooms[3].active}
-                        roomNum={4}
-                        makeActive={this.handleClick}
-                      />
-                    </a> */}
                   </div>
                   <button
                     style={{ margin: '2rem 2rem 1rem 1rem' }}
                     className="positive ui button"
+                    onClick={handleSubmit}
                   >
                     Submit
                   </button>
