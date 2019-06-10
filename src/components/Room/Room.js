@@ -24,34 +24,42 @@ export default class Tour extends Component {
           </div>
           <div className="extra content">
             {room ? (
-              <div>
-                <span>Adults(18+)</span>
-                <select>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                </select>
-                <span>Children(0-17)</span>
-                <select>
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                </select>
+              <div className="selector">
+                <div className="selector-item">
+                  <h5>Adults(18+)</h5>
+                  <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                  </select>
+                </div>
+                <div className="selector-item">
+                  <h5>Children(0-17)</h5>
+                  <select>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
               </div>
             ) : (
-              <div>
-                <span>Adults(18+)</span>
-                <select disabled>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                </select>
-                <span>Children(0-17)</span>
-                <select disabled>
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                </select>
+              <div className="selector">
+                <div className="selector-item">
+                  <h5>Adults(18+)</h5>
+                  <select disabled>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                  </select>
+                </div>
+                <div className="selector-item">
+                  <h5>Children(0-17)</h5>
+                  <select disabled>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
               </div>
             )}
           </div>

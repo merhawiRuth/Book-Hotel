@@ -56,7 +56,7 @@ export default class RoomList extends Component {
                     </a>
                   </div>
                   <button
-                    style={{ margin: '2rem 2rem 1rem 1rem' }}
+                    style={{ margin: '2rem 2rem 0rem 0rem' }}
                     className="positive ui button"
                     onClick={handleSubmit}
                   >
