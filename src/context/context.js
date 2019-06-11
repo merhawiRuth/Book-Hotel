@@ -6,24 +6,26 @@ const ProductContext = React.createContext();
 class ProductProvider extends Component {
   state = {
     room1: true,
+    chil1: 0,
+    Adul1: 1,
     room2: false,
+    chil2: 0,
+    Adul2: 1,
     room3: false,
-    room4: false
+    chil3: 0,
+    Adul3: 1,
+    room4: false,
+    chil4: 0,
+    Adul4: 1
   };
   hydrateStateWithLocalStorage() {
-    // for all items in state
     for (let key in this.state) {
-      // if the key exists in localStorage
       if (localStorage.hasOwnProperty(key)) {
-        // get the key's value from localStorage
         let value = localStorage.getItem(key);
-
-        // parse the localStorage string and setState
         try {
           value = JSON.parse(value);
           this.setState({ [key]: value });
         } catch (e) {
-          // handle empty string
           this.setState({ [key]: value });
         }
       }
@@ -33,8 +35,11 @@ class ProductProvider extends Component {
   componentDidMount() {
     this.hydrateStateWithLocalStorage();
   }
-  componentWillUpdate(extProps, nextState) {}
-
+  handleChangedValue = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
   handleRoom = room => {
     switch (room) {
       case 2:
@@ -52,14 +57,20 @@ class ProductProvider extends Component {
       this.setState({
         room2: !this.state.room2,
         room3: false,
-        room4: false
+        room4: false,
+        chil3: 0,
+        Adul3: 1,
+        chil4: 0,
+        Adul4: 1
       });
     }
     if (room === 'room3') {
       this.setState({
         room2: true,
         room3: !this.state.room3,
-        room4: false
+        room4: false,
+        chil4: 0,
+        Adul4: 1
       });
     }
     if (room === 'room4') {
@@ -69,15 +80,52 @@ class ProductProvider extends Component {
         room4: !this.state.room4
       });
     }
+    if (this.state.room3 === true) {
+      this.setState({
+        chil3: 0,
+        Adul3: 1
+      });
+    }
+    if (this.state.room4 === true) {
+      this.setState({
+        chil4: 0,
+        Adul4: 1
+      });
+    }
+    if (this.state.room2 === true) {
+      this.setState({
+        chil2: 0,
+        Adul2: 1
+      });
+    }
   };
   handleSubmit = () => {
-    const { room1, room2, room3, room4 } = this.state;
+    const {
+      room1,
+      room2,
+      room3,
+      room4,
+      chil1,
+      chil2,
+      chil3,
+      chil4,
+      Adul1,
+      Adul2,
+      Adul3,
+      Adul4
+    } = this.state;
     localStorage.setItem('room1', room1);
     localStorage.setItem('room2', room2);
-
     localStorage.setItem('room3', room3);
-
     localStorage.setItem('room4', room4);
+    localStorage.setItem('chil1', chil1);
+    localStorage.setItem('chil2', chil2);
+    localStorage.setItem('chil3', chil3);
+    localStorage.setItem('chil4', chil4);
+    localStorage.setItem('Adul1', Adul1);
+    localStorage.setItem('Adul2', Adul2);
+    localStorage.setItem('Adul3', Adul3);
+    localStorage.setItem('Adul4', Adul4);
   };
   render() {
     return (
@@ -85,7 +133,8 @@ class ProductProvider extends Component {
         value={{
           ...this.state,
           handleRoom: this.handleRoom,
-          handleSubmit: this.handleSubmit
+          handleSubmit: this.handleSubmit,
+          handleChangedValue: this.handleChangedValue
         }}
       >
         {this.props.children}
