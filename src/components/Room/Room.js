@@ -4,7 +4,7 @@ export default class Room extends Component {
   render() {
     const { roomNum, room, handleRoom } = this.props;
     return (
-      <div className="ui cards tour">
+      <div className="ui cards">
         <div className="card">
           <div className="content">
             <span className="header">

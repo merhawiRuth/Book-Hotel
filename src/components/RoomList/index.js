@@ -31,9 +31,8 @@ export default class RoomList extends Component {
               <div>
                 <section className="tourlist">
                   <div className="ui four cards">
-                    <a className="green card">
+                    <div className="green card">
                       <Room
-                        className="column"
                         room={room1}
                         roomNum={1}
                         handleRoom={handleRoom}
@@ -88,11 +87,10 @@ export default class RoomList extends Component {
                           </div>
                         )}
                       </div>
-                    </a>
+                    </div>
 
-                    <a className={room2 === true ? 'green card' : 'red card'}>
+                    <div className={room2 === true ? 'green card' : 'red card'}>
                       <Room
-                        className="column"
                         room={room2}
                         roomNum={2}
                         handleRoom={handleRoom}
@@ -148,10 +146,9 @@ export default class RoomList extends Component {
                           </div>
                         )}
                       </div>
-                    </a>
-                    <a className={room3 === true ? 'green card' : 'red card'}>
+                    </div>
+                    <div className={room3 === true ? 'green card' : 'red card'}>
                       <Room
-                        className="column"
                         room={room3}
                         roomNum={3}
                         handleRoom={handleRoom}
@@ -207,14 +204,9 @@ export default class RoomList extends Component {
                           </div>
                         )}
                       </div>
-                    </a>
-                    <a className={room4 === true ? 'green card' : 'red card'}>
-                      <Room
-                        className="column"
-                        room={room4}
-                        roomNum={4}
-                        handleRoom={handleRoom}
-                      />
+                    </div>
+                    <div className={room4 === true ? 'green card' : 'red card'}>
+                      <Room room={room4} roomNum={4} handleRoom={handleRoom} />
                       <div className="extra content">
                         {room4 ? (
                           <div className="selector">
@@ -264,7 +256,7 @@ export default class RoomList extends Component {
                           </div>
                         )}
                       </div>
-                    </a>
+                    </div>
                   </div>
                   <button
                     style={{ margin: '2rem 2rem 0rem 0rem' }}
